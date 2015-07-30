@@ -34,9 +34,10 @@ else
     --restart=always \
     --publish=$PORT:80 \
     --volume=$BUNDLE_PATH:/bundle \
-    --hostname="$HOSTNAME-$APPNAME" \
     --env-file=$ENV_FILE \
     --link=mongodb:mongodb \
+    --hostname="$HOSTNAME-$APPNAME" \
+    --env=MONGO_URL=mongodb://mongodb:27017/hubdb \
     --name=$APPNAME \
     meteorhacks/meteord:base
 fi
