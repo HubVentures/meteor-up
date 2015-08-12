@@ -8,6 +8,7 @@ var helpers = require('../lib/helpers');
 var cliOptions = require('minimist')(process.argv.slice(2));
 var configFileName = cliOptions.config || 'mup.json';
 var settingsFileName = cliOptions.settings || 'settings.json';
+sshUserName = cliOptions.username;
 
 require('colors');
 require('../lib/update_notifier.js');
@@ -20,6 +21,7 @@ if (configFileName !== 'mup.json' || settingsFileName !== 'settings.json'){
 }
 console.log('Configuration file : ' + configFileName);
 console.log('Settings file      : ' + settingsFileName);
+console.log('Using SSH username : ' + sshUserName);
 console.log('');
 
 var action = cliOptions._[0];
